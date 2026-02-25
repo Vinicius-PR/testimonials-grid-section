@@ -15,6 +15,7 @@
   --purple-50: #EDE4FF;
   --purple-300: #A775F1;
   --purple-500: #733FC8;
+  --backgound-color: #F6F5F6;
 
   --spacing-500: 2.5rem;  /* 40px */
   --spacing-400: 2rem;    /* 32px */
@@ -24,9 +25,23 @@
   --spacing-50: 0.25rem;  /* 4px */
 }
 
+/* screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-style: normal;
+  background-color: var(--backgound-color);
 }
 
 .text-preset-1 {
@@ -51,4 +66,216 @@ body {
   font-size: 0.6875rem;  /* 11px */
   font-weight: 500;
   line-height: 1.1;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: var(--spacing-400);
+  row-gap: var(--spacing-300);
+
+  /* To match the margin-top from the Figma design, I used 229px. It feels a bit too large, but it works. I also added a media query to adjust it in case the device height is not large enough.*/
+  margin: 14.3125rem auto 8rem;
+  max-width: 1114px;
+  padding: 0 2rem;
+}
+
+.first-testimonial {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.second-testimonial {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.third-testimonial {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.fourth-testimonial {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+.fifth-testimonial {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+}
+
+@media (max-height: 900px) {
+  .main-container {
+    margin: 5rem auto 2rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .main-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: var(--spacing-400);
+  }
+
+  .first-testimonial {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .second-testimonial {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .third-testimonial {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .fourth-testimonial {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .fifth-testimonial {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-container {
+    margin: 4.5625rem auto 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .first-testimonial {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .second-testimonial {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .third-testimonial {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .fourth-testimonial {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .fifth-testimonial {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+}
+
+/* Classes for text colors */
+.text-white {
+  color: var(--white);
+}
+
+.text-purple-50 {
+  color: var(--purple-50);
+}
+
+.text-grey-100 {
+  color: var(--grey-100);
+}
+
+.text-grey-200 {
+  color: var(--grey-200);
+}
+
+.text-grey-400 {
+  color: var(--grey-400);
+}
+
+.text-grey-500 {
+  color: var(--grey-500);
+}
+/* END - Classes for text colors */
+
+/* Classes for background-colors */
+.back-purple-500 {
+  background-color: var(--purple-500);
+}
+
+.back-grey-500 {
+  background-color: var(--grey-500);
+}
+
+.back-white {
+  background-color: var(--white);
+}
+
+.back-dark-blue {
+  background-color: var(--dark-blue);
+}
+/* END - Classes for background-colors */
+
+/* Back image */
+.back-image-quote {
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: right 80px top 0px;
+}
+
+@media (max-width: 768px) {
+  .back-image-quote {
+    background-position: right 167px top 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .back-image-quote {
+    background-image: unset;
+  }
+}
+
+/* Borders */
+.border-purple-300 {
+  border: 2px solid var(--purple-300);
+}
+
+.border-purple-500 {
+  border: 2px solid var(--purple-500);
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+
+  padding: var(--spacing-400);
+  border-radius: 8px;
+  /* box-shadow: offset-x offset-y blur spread color;*/
+  box-shadow: 30px 30px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+  max-height: 1.875rem; /* 30px */
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-50);
 }
