@@ -78,7 +78,6 @@ body {
   /* To match the margin-top from the Figma design, I used 229px. It feels a bit too large, but it works. I also added a media query to adjust it in case the device height is not large enough.*/
   margin: 14.3125rem auto 8rem;
   max-width: 1114px;
-  padding: 0 2rem;
 }
 
 .first-testimonial {
@@ -112,11 +111,18 @@ body {
   }
 }
 
+@media (max-width: 1120px) {
+  .main-container {
+    padding: 0 1rem;
+  }
+}
+
 @media (max-width: 950px) {
   .main-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: var(--spacing-400);
+    padding: 0 2rem;
   }
 
   .first-testimonial {
