@@ -254,11 +254,18 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-200);
+  min-width: 15.9375rem; /* 255px */
 
   padding: var(--spacing-400);
   border-radius: 8px;
   /* box-shadow: offset-x offset-y blur spread color;*/
   box-shadow: 30px 30px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1025px) {
+  .testimonial {
+    min-width: auto;
+  }
 }
 
 .profile {
